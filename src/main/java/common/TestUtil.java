@@ -1,5 +1,6 @@
 package common;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -7,6 +8,10 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 public final class TestUtil {
 	
+	/**
+	 * 业务对象重写tostring
+	 * @param obj
+	 */
 	public static final void modelToString( Object obj){
 		//对象及其属性一行显示
 	    System.out.println(ToStringBuilder.reflectionToString(obj));
@@ -19,6 +24,24 @@ public final class TestUtil {
 	    System.out.println(ToStringBuilder.reflectionToString(obj, ToStringStyle.SHORT_PREFIX_STYLE));
 	    //只显示属性
 	    System.out.println(ToStringBuilder.reflectionToString(obj, ToStringStyle.SIMPLE_STYLE));
+	}
+	
+	/**
+	 * List<业务对象>重写tostring
+	 * @param <T>
+	 * @param objList
+	 */
+	public static final <T> void ListModelToString(List<T> tList){
+		if(tList !=null && tList.size()>0){
+			for(Object obj : tList){
+				if(obj !=null  && ! "".equals(obj)){
+					//对象名称简写
+				    System.out.println(ToStringBuilder.reflectionToString(obj, ToStringStyle.SHORT_PREFIX_STYLE));
+				}else{
+					System.out.println("对象为空");
+				}
+			}
+		}
 	}
 	
 	  /**

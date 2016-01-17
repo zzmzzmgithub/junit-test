@@ -1,5 +1,8 @@
 package servise;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import model.Student;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -7,7 +10,6 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import org.junit.Test;
 
 import common.TestUtil;
-import common.TradePortalUtil;
 
 
 public class TsetToString {
@@ -35,7 +37,17 @@ public class TsetToString {
 	
 	@Test
 	public void yy(){
-		Student ss = new Student("张三", "081210");
+		Student ss = new Student("张三", "69");
 		TestUtil.modelToString(ss);
+	}
+	
+	@Test
+	public void ww(){
+		Student ss = new Student("张三", "69");
+		Student aa = new Student("张四", "659");
+		List<Student> sdList = new ArrayList<Student>();
+		sdList.add(aa);
+		sdList.add(ss);
+		TestUtil.ListModelToString(sdList);
 	}
 }
